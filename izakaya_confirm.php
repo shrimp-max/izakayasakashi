@@ -67,11 +67,12 @@ $shops_json = json_encode($data['results']['shop']);
             border: 4px solid #6f28bb;
             width: 50%px;
             background-color: aliceblue;
-            height:500px;
+            height:800px;
             overflow: auto;
         }
         img{
-            width:50px;
+            display: flex;
+            width: 150px;
         }
         #view>div{
             border-bottom: 1px dotted #3838ab;
@@ -84,12 +85,15 @@ $shops_json = json_encode($data['results']['shop']);
             font-size:x-large;
             color:#f1071e;
         }
+        #back{
+            font-size:x-large;
+        }
     </style>
 </head>
 <body>
     <div>
         <h1>
-           <span id="area"></span> 今日のランチはこれ！
+           <span id="area"></span> 今日のランチはこれ！ <input type="button" value="再検索" id="back">
         </h1>
         <div id="view"></div>
     </div>
@@ -109,16 +113,15 @@ $shops_json = json_encode($data['results']['shop']);
         console.log(shops);
 
         if(shops.length > 0){
-            const array = [shops];
-            const selected = randomSelect(array.slice(), 3);
+            const selected = randomSelect(shops.slice(), 3);
  
             // 配列shopsからランダムにnum個の要素を取り出す          
-            function randomSelect(array, num){
+            function randomSelect(shops, num){
                 let new_shops = [];
                 
-                while(new_shops.length < 3 && array.length > 0){
+                while(new_shops.length < 3 && shops.length > 0){
                     // 配列からランダムな要素を選ぶ
-                    const rand = Math.floor(Math.random() * array.length);
+                    const rand = Math.floor(Math.random() * shops.length);
                     // 選んだ要素を別の配列に登録する
                     new_shops.push(shops[rand]);
                     // もとの配列からは削除する
@@ -138,6 +141,7 @@ $shops_json = json_encode($data['results']['shop']);
                             <div>おすすめ：${new_shops[i].catch}</div>
                             <div>価格帯：${new_shops[i].budget.name}</div>
                             <div>URL：<a href="${new_shops[i].urls.pc}">${new_shops[i].urls.pc}</a></div>
+                            <div><img src="${new_shops[i].photo.pc.l}"></div>
                         </div>
                     `;//「Shit+@」 バッククォート
                 }
@@ -146,6 +150,10 @@ $shops_json = json_encode($data['results']['shop']);
             };
         };
 
+        //再検索時には、izakaya.phpに戻す
+        $("#back").on("click",function(){
+            location.replace("izakaya.php");
+        });
 
 
 
