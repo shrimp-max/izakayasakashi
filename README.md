@@ -8,7 +8,7 @@
 
 ## ③DEMO
 
-[デプロイしている場合はURLを記入（任意）](https://ebitaku.sakura.ne.jp/izakayasagashi/izakayasakashi/php/izakayasagashi/izakaya.php）
+https://ebitaku.sakura.ne.jp/izakayasagashi/izakayasakashi/php/izakayasagashi/izakaya.php
 
 ## ④作ったアプリケーション用のIDまたはPasswordがある場合
 
