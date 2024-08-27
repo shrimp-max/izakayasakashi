@@ -34,4 +34,4 @@
 - [参考記事]
   - 1.ホットペッパーAPI [https://webservice.recruit.co.jp/doc/hotpepper/reference.html]
   - 2. JavaScriptでCORSエラーが出るときの対処[https://qiita.com/rahydyn/items/e9ed2480e0e649313c04]
-    3. PHP CURLの使い方[https://qiita.com/4roro4/items/73d2b413ad0063848aa4]
+  - 3. PHP CURLの使い方[https://qiita.com/4roro4/items/73d2b413ad0063848aa4]
