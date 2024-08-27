@@ -109,42 +109,42 @@ $shops_json = json_encode($data['results']['shop']);
         console.log(shops);
 
         if(shops.length > 0){
-            // const array = [shops];
-            // const selected = randomSelect(array.slice(), 3);
+            const array = [shops];
+            const selected = randomSelect(array.slice(), 3);
  
-            // // 配列shopsからランダムにnum個の要素を取り出す          
-            // function randomSelect(array, num){
-            //     let new_shops = [];
+            // 配列shopsからランダムにnum個の要素を取り出す          
+            function randomSelect(array, num){
+                let new_shops = [];
                 
-            //     if(new_shops.length < 3 && array.length > 0){
-            //         // 配列からランダムな要素を選ぶ
-            //         const rand = Math.floor(Math.random() * array.length);
-            //         // 選んだ要素を別の配列に登録する
-            //         new_shops.push(shops[rand]);
-            //         // もとの配列からは削除する
-            //         shops.splice(rand, 1);
-            //     };
-            //     return new_shops;
-            //     console.log(new_shops);
+                while(new_shops.length < 3 && array.length > 0){
+                    // 配列からランダムな要素を選ぶ
+                    const rand = Math.floor(Math.random() * array.length);
+                    // 選んだ要素を別の配列に登録する
+                    new_shops.push(shops[rand]);
+                    // もとの配列からは削除する
+                    shops.splice(rand, 1);
+                    
+                };
+                console.log(new_shops);
 
                 $(function(){
                 let html = ""; //HTML文字を追加していく
-                for(let i=0; i<shops.length; i++){
+                for(let i=0; i<new_shops.length; i++){
                     html += `
                         <div> 
-                            <div>店名：${shops[i].name}</div>
-                            <div>住所：${shops[i].address}</div>
-                            <div>アクセス：${shops[i].access}</div>
-                            <div>おすすめ：${shops[i].catch}</div>
-                            <div>価格帯：${shops[i].budget.name}</div>
-                            <div>URL：${shops[i].urls.pc}</div>
+                            <div>店名：${new_shops[i].name}</div>
+                            <div>住所：${new_shops[i].address}</div>
+                            <div>アクセス：${new_shops[i].access}</div>
+                            <div>おすすめ：${new_shops[i].catch}</div>
+                            <div>価格帯：${new_shops[i].budget.name}</div>
+                            <div>URL：<a href="${new_shops[i].urls.pc}">${new_shops[i].urls.pc}</a></div>
                         </div>
                     `;//「Shit+@」 バッククォート
                 }
                 $("#view").append(html);
                 });
             };
-
+        };
 
 
 
